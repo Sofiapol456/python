@@ -47,7 +47,6 @@ def guardar_saludo():
     f.write('¿Cómo están?.')
     f.close()
 
-
 def guardar_archivo_html():
     """
     Función para guardar datos en un archivo de html.
@@ -62,7 +61,6 @@ def guardar_archivo_html_v2(saludo):
     Función en versión 2 para guardar datos en un archivo de html.
     @param: string      Texto del usuario para guardar.
     """
-
     texto_css = " border: solid 1px; ";
     texto_css += " color: red; ";
     texto_css += " background-color: yellow; ";
@@ -97,7 +95,79 @@ guardar_saludo()
 guardar_archivo_html_v2( input( "Digita un texto." ) )
 leer_archivo()
 presentacion()
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Esta función intercambia los valores de dos variables
+def intercambio(a, b):
+    # Usa una variable temporal para guardar el valor de a
+    temp = a
+    # Asigna el valor de b a a
+    a = b
+    # Asigna el valor de temp (que era el de a) a b
+    b = temp
+    # Retorna los valores intercambiados
+    return a, b
+
+# Asigna los valores iniciales a las variables
+a = 5
+b = 10
+# Intercambia los valores usando la asignación múltiple
+a, b = b, a
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#https://www.techiedelight.com/es/how-to-rename-a-file-in-python/
+
+import os
+#os.rename('pp.txt', 'uu.txt')
+
+import os.path as path
+
+if path.exists("pp.txt"):
+    print("El archivo existe")
+else:
+    print("El archivo no existe")
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#https://j2logo.com/python/listar-directorio-en-python/
+
+import os
+
+ejemplo_dir = '.'
+
+contenido = os.listdir(ejemplo_dir)
+
+imagenes = []
+for fichero in contenido:
+    if os.path.isfile(os.path.join(ejemplo_dir, fichero)) and fichero.endswith('.jpg'):
+        imagenes.append(fichero)
+
+print(imagenes)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# variables globales y locales
+#https://apuntes.de/python/alcance-de-variables-en-python-global-y-local/#gsc.tab=0
+
+g_conteo = 0
+g_nombre = "progamador"
+
+
+def subir():
+
+    global g_conteo
+    global g_nombre 
+    g_conteo += 1
+    g_nombre = "Programador"
+    return 0
+
+def bajar():
+    
+    global g_conteo
+    global g_nombre 
+    g_nombre = "Analista"
+    g_conteo += 1
+    return 0
+
+subir()
+bajar()
+
+print( g_conteo, " ", g_nombre )
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 print(chr(27)+"[1;33m"+"Ingrese los siguientes datos")
 
 def menu():
@@ -135,7 +205,7 @@ area_circulo = circulo(radio)
 print("El área del círculo es:", are3 a_circulo)
 
 menu()
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 print("\033[4;35m"+"Gracias por ingresar los datos")
 
 # Esta función muestra un menú con opciones para el usuario
@@ -208,7 +278,7 @@ def main():
 
 imprimir_color_amarillo("Bienvenidos, Ingresa los siguientes datos")
 main() # Llama a la función principal
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Documentación de funciones
 #https://stackoverflow.com/questions/9195455/how-to-document-a-method-with-parameters
 
@@ -240,14 +310,13 @@ def distancia( x1, x2, y1, y2 ):
 
 #Estas coordenadas representan una columna con mucha distancia distancia.
 print(distancia(5,5,1,8))
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #https://apuntes.de/python/alcance-de-variables-en-python-global-y-local/#gsc.tab=0
 
 #https://apuntes.de/python/alcance-de-variables-en-python-global-y-local/#gsc.tab=0
 
 g_conteo = 0
 g_nombre = "progamador"
-
 
 def subir():
 
@@ -270,17 +339,13 @@ def cambiar():
   global g_apellido
   g_apellido = "sofia"
 
-
-
-
-
 subir()
 bajar()
 cambiar()
 
 
 print( g_conteo, " ", g_nombre, " ", g_apellido)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Documentación de funciones
 #https://stackoverflow.com/questions/9195455/how-to-document-a-method-with-parameters
 
@@ -375,8 +440,7 @@ def valoracion(ficha1, ficha1X, ficha1Y, ficha2, ficha2X, ficha2Y):
         
         if d == 1.41: #Condición del peón.
             salida += "ambos peones se amenazan. \n"
-     
-        
+      
     #Peon vs alfil.
     if ficha1 == 1 and ficha2 == 2 or ficha1 == 2 and ficha2 == 1:
         
@@ -496,3 +560,175 @@ def menu():
 
 menu()
 print("Tenga un buen día.")
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import random
+
+c1 = "X"
+c2 = ""
+c3 = ""
+c4 = "O"
+c5 = ""
+c6 = ""
+c7 = "X"
+c8 = ""
+c9 = "O"
+
+def imprimir():
+    
+    """
+    Función que construye con una serie de variables el tablero de un triqui.
+    @return: texto      UN texto que representa un tablero de triqui.
+    """
+    
+    global c1
+    global c2
+    global c3
+    global c4
+    global c5
+    global c6
+    global c7
+    global c8
+    global c9
+
+    salida =  arreglar(c1) + "|" + arreglar(c2) + "|" + arreglar(c3) + "\n"
+    salida += arreglar(c4) + "|" + arreglar(c5) + "|" + arreglar(c6) + "\n"
+    salida += arreglar(c7) + "|" + arreglar(c8) + "|" + arreglar(c9) + "\n"
+
+    return salida
+
+def arreglar(c):
+    
+    """
+    Función que arregla la impresión de una variable para que no descuadre el tablero.
+    No requiere acceso a las variables globales. Es una buena función.
+    @param: texto       Un caracter o texto.
+    @return: texto      Un texto que cuadra en un tablero de trieui.
+    """
+    
+    salida = c
+    
+    if c == "":
+        salida = "_"
+    
+    return salida
+
+def asignar(n):
+    
+    """
+    Asigna a una variable de casilla, una jugada mediante un caracter.
+    """
+    global c1
+    global c2
+    global c3
+    global c4
+    global c5
+    global c6
+    global c7
+    global c8
+    global c9
+    
+    if n == 1: c1 = "X"
+    if n == 2: c2 = "X"
+    if n == 3: c3 = "X"
+    if n == 4: c4 = "X"
+    if n == 5: c5 = "X"
+    if n == 6: c6 = "X"
+    if n == 7: c7 = "X"
+    if n == 8: c8 = "X"
+    if n == 9: c9 = "X"
+    
+#------------ ejecución -------------------------
+
+#https://www.slingacademy.com/article/python-generate-a-random-integer-between-min-and-max/
+#print( random.randint(1, 9) )
+
+asignar( random.randint(1, 9) )
+
+print( imprimir() )
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import random
+
+c1, c2, c3, c4, c5, c6, c7, c8, c9 = 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+"""
+Función que construye con una serie de variables el tablero de un triqui.
+@return: texto UN texto que representa un tablero de triqui.
+@Autor: 
+"""
+def mostrar_tablero():
+    print(f"{c1} | {c2} | {c3}")
+    print("--|---|--")
+    print(f"{c4} | {c5} | {c6}")
+    print("--|---|--")
+    print(f"{c7} | {c8} | {c9}")
+
+def jugar():
+    jugador_actual = "X"
+
+    while True:
+        mostrar_tablero()
+
+        if jugador_actual == "X":
+            # Pedir al jugador que elija una posición
+            posicion = int(input(f"Jugador {jugador_actual} elige una posición (1-9): "))
+        else:
+            # Jugada aleatoria para el jugador O
+            posicion = random.choice(generar_numeros_aleatorios())
+            print(f"Jugador {jugador_actual} elige la posición {posicion}")
+
+        # Actualizar la posición en el tablero
+        if globals()[f"c{posicion}"] != "X" and globals()[f"c{posicion}"] != "O":
+            globals()[f"c{posicion}"] = jugador_actual
+        else:
+            print("Posición ocupada. ¡Inténtalo de nuevo!")
+            continue
+
+        # Verificar si hay un ganador
+        if verificar_ganador():
+            mostrar_tablero()
+            print(f"¡Jugador {jugador_actual} ha ganado!")
+            break
+
+        # Cambiar al siguiente jugador
+        jugador_actual = "O" if jugador_actual == "X" else "X"
+
+def verificar_ganador():
+    # Verificar filas
+    for i in range(0, 9, 3):
+        if globals()[f"c{i+1}"] == globals()[f"c{i+2}"] == globals()[f"c{i+3}"]:
+            return True
+
+    # Verificar columnas
+    for i in range(1, 4):
+        if globals()[f"c{i}"] == globals()[f"c{i+3}"] == globals()[f"c{i+6}"]:
+            return True
+
+    # Verificar diagonales
+    if c1 == c5 == c9 or c3 == c5 == c7:
+        return True
+
+    return False
+
+    """
+    Genera números aleatorios de la casilla, una jugada mediante un caracter.
+    """
+
+def generar_numeros_aleatorios():
+    return random.sample(range(1, 10), 9)
+
+# Menú principal
+while True:
+    print("Menú:")
+    print("0. Cerrar programa")
+    print("1. Jugar")
+
+    opcion = input("Selecciona una opción: ")
+
+    if opcion == "0":
+        print("¡Hasta luego!")
+        break
+    elif opcion == "1":
+        c1, c2, c3, c4, c5, c6, c7, c8, c9 = 1, 2, 3, 4, 5, 6, 7, 8, 9
+        jugar()
+    else:
+        print("Opción inválida. Inténtalo de nuevo.")
