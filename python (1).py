@@ -601,8 +601,8 @@ def arreglar(c):
     """
     Función que arregla la impresión de una variable para que no descuadre el tablero.
     No requiere acceso a las variables globales. Es una buena función.
-    @param: texto       Un caracter o texto.
-    @return: texto      Un texto que cuadra en un tablero de trieui.
+    @param: texto Un caracter o texto.
+    @return: texto Un texto que cuadra en un tablero de trieui.
     """
     
     salida = c
