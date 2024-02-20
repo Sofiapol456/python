@@ -887,3 +887,398 @@ class Universo:
 #---------------------
 
 Universo.menu()
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class suma:
+    def suma (self, n1, n2):
+        resultado = n1 + n2
+        return resultado
+
+# Ejemplo de uso
+calculadora = suma() 
+resultado_suma = calculadora.suma(5,4)
+print("La suma es igual a:", resultado_suma)
+
+def determinar_positivo_negativo(numero):
+    if numero > 0:
+        return "El número es positivo"
+    elif numero < 0:
+        return "El número es negativo"
+    else:
+        return "El número es cero"
+
+# Ejemplo de uso
+numero = 10
+resultado = determinar_positivo_negativo(numero)
+print(resultado)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class MiClase:
+  
+    def Metodo1(self):
+        return 0
+  
+    def Metodo2(self):
+        return 1 
+  
+    def metodo2_1(self):
+        return 2
+    
+    def metodo4(self):
+        return 3
+  
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+  
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+#nuevaInstancia.metodo4()
+
+def escribir(self, palabra):
+  with open("himnonacional.txt", "w") as archivo:
+      archivo.write(palabra)
+  print(f"palabra '{palabra}' guardar en el archivo.")
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MiClase:
+    def Metodo1(self):
+        return 0
+
+    def Metodo2(self):
+        return 1
+
+    def metodo2_1(self):
+        return 2
+
+    def metodo4(self, nombre_archivo, mensaje):
+        with open(nombre_archivo, "w") as archivo:
+            archivo.write(mensaje)
+        print(f"El mensaje '{mensaje}' ha sido guardado en el archivo '{nombre_archivo}'.")
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.metodo4("himnonacional.txt", "oh, gloria y macesible, oh jubilo y mortal")
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MiClase:
+  
+    def Metodo1(self):
+        return 0
+  
+    def Metodo2(self):
+        return 1 
+  
+    def metodo2_1(self):
+        return 2
+
+    def calcular_salario_minimo(self, salario_minimo):
+        if 1000000 < salario_minimo < 700001:
+            mensaje = "El salario mínimo está en el rango adecuado."
+        elif salario_minimo >= 700001:
+            mensaje = "Se ha excedido el millón."
+        else:
+            mensaje = "El salario mínimo es menor a un millón."
+        
+        with open("salario_minimo.txt", "w") as archivo:
+            archivo.write(mensaje)
+        
+        print(mensaje)
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+  
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.calcular_salario_minimo(7000)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MiClase:
+  
+    def Metodo1(self):
+        return 0
+  
+    def Metodo2(self):
+        return 1 
+  
+    def metodo2_1(self):
+        return 2
+    
+    def Metodo4(self):
+        return 3
+    
+    def bucle(self):
+        return 4
+
+    def calcular_salario_minimo(self, salario_minimo):
+        if 1000000 < salario_minimo < 700001:
+            mensaje = "El salario mínimo está en el rango adecuado."
+        elif salario_minimo >= 700001:
+            mensaje = "Se ha excedido el millón."
+        else:
+            mensaje = "El salario mínimo es menor a un millón."
+        
+        with open("salario_minimo.txt", "w") as archivo:
+            archivo.write(mensaje)
+        
+        print(mensaje)
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+  
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.calcular_salario_minimo(7000)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MiClase:
+  
+    def Metodo1(self):
+        return 0
+  
+    def Metodo2(self):
+        return 1 
+  
+    def metodo2_1(self):
+        return 2
+    
+    def Metodo4(self, nombre_archivo, mensaje):
+        d = self.Metodo3()
+        print(d)
+        e = self.escribir(nombre_archivo, mensaje)
+        print(e)
+       
+    def bucle(self):
+        return 3
+
+    def calcular_salario_minimo(self, salario_minimo):
+        if 1000000 < salario_minimo < 700001:
+            mensaje = "El salario mínimo está en el rango adecuado."
+        elif salario_minimo >= 700001:
+            mensaje = "Se ha excedido el millón."
+        else:
+            mensaje = "El salario mínimo es menor a un millón."
+        
+        with open("salario_minimo.txt", "w") as archivo:
+            archivo.write(mensaje)
+        
+        print(mensaje)
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+  
+    def escribir(self, nombre_archivo, mensaje):
+        with open(nombre_archivo, "w") as archivo:
+            archivo.write(mensaje)
+        return f"El mensaje '{mensaje}' ha sido guardado en el archivo '{nombre_archivo}'."
+
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.calcular_salario_minimo(7000)
+nuevaInstancia.Metodo4("himnonacional.txt", "oh, gloria y macesible, oh jubilo y mortal")
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MiClase:
+  
+    def Metodo1(self):
+        return 0
+  
+    def Metodo2(self):
+        return 1 
+  
+    def metodo2_1(self):
+        return 2
+    
+    def Metodo4(self, nombre_archivo, mensaje):
+        d = self.Metodo3()
+        print(d)
+        e = self.escribir(nombre_archivo, mensaje)
+        print(e)
+       
+    def bucle(self):
+        return 3
+
+    def calcular_salario_minimo(self, salario_minimo):
+        if 1000000 < salario_minimo < 700001:
+            mensaje = "El salario mínimo está en el rango adecuado."
+        elif salario_minimo >= 700001:
+            mensaje = "Se ha excedido el millón."
+        else:
+            mensaje = "El salario mínimo es menor a un millón."
+        
+        with open("salario_minimo.txt", "w") as archivo:
+            archivo.write(mensaje)
+        
+        print(mensaje)
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+  
+    def escribir(self, nombre_archivo, mensaje):
+        with open(nombre_archivo, "w") as archivo:
+            archivo.write(mensaje)
+        return f"El mensaje '{mensaje}' ha sido guardado en el archivo '{nombre_archivo}'."
+
+    def rango(self, inicio, fin, paso):
+        for i in range(inicio, fin, paso):
+            print(i)
+
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.calcular_salario_minimo(7000)
+nuevaInstancia.Metodo4("himnonacional.txt", "oh, gloria y macesible, oh jubilo y mortal")
+nuevaInstancia.rango(0, 10, 2)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MiClase:
+  
+    def Metodo1(self):
+        return 0
+  
+    def Metodo2(self):
+        return 1 
+  
+    def metodo2_1(self):
+        return 2
+    
+    def Metodo4(self, nombre_archivo, mensaje):
+        d = self.Metodo3()
+        print(d)
+        e = self.escribir(nombre_archivo, mensaje)
+        print(e)
+       
+    def bucle(self):
+        return 3
+
+    def calcular_salario_minimo(self, salario_minimo):
+        if 1000000 < salario_minimo < 700001:
+            mensaje = "El salario mínimo está en el rango adecuado."
+        elif salario_minimo >= 700001:
+            mensaje = "Se ha excedido el millón."
+        else:
+            mensaje = "El salario mínimo es menor a un millón."
+        
+        with open("salario_minimo.txt", "w") as archivo:
+            archivo.write(mensaje)
+        
+        print(mensaje)
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+  
+    def escribir(self, nombre_archivo, mensaje):
+        with open(nombre_archivo, "w") as archivo:
+            archivo.write(mensaje)
+        return f"El mensaje '{mensaje}' ha sido guardado en el archivo '{nombre_archivo}'."
+
+    def rango(self, inicio, fin, paso):
+        for i in range(inicio, fin, paso):
+            print(i)
+
+    def par_impar(self, numero):
+        if numero % 2 == 0:
+            print(f"El número {numero} es par.")
+        else:
+            print(f"El número {numero} es impar.")
+
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.calcular_salario_minimo(7000)
+nuevaInstancia.Metodo4("himnonacional.txt", "oh, gloria y macesible, oh jubilo y mortal")
+nuevaInstancia.rango(0, 10, 2)
+nuevaInstancia.par_impar(5)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MiClase:
+  
+    def Metodo1(self):
+        return 0
+  
+    def Metodo2(self):
+        return 1 
+  
+    def metodo2_1(self):
+        return 2
+    
+    def Metodo4(self, nombre_archivo, mensaje):
+        d = self.Metodo3()
+        print(d)
+        e = self.escribir(nombre_archivo, mensaje)
+        print(e)
+       
+    def bucle(self):
+        for i in range(1, 101, 2):  # Imprime los números impares del 1 al 100
+            print(i)
+
+    def calcular_salario_minimo(self, salario_minimo):
+        if 1000000 < salario_minimo < 700001:
+            mensaje = "El salario mínimo está en el rango adecuado."
+        elif salario_minimo >= 700001:
+            mensaje = "Se ha excedido el millón."
+        else:
+            mensaje = "El salario mínimo es menor a un millón."
+        
+        with open("salario_minimo.txt", "w") as archivo:
+            archivo.write(mensaje)
+        
+        print(mensaje)
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        print(a + b + c)
+  
+    def escribir(self, nombre_archivo, mensaje):
+        with open(nombre_archivo, "w") as archivo:
+            archivo.write(mensaje)
+        return f"El mensaje '{mensaje}' ha sido guardado en el archivo '{nombre_archivo}'."
+
+    def rango(self, inicio, fin, paso):
+        for i in range(inicio, fin, paso):
+            print(i)
+
+    def par_impar(self, numero):
+        if numero % 2 == 0:
+            print(f"El número {numero} es par.")
+        else:
+            print(f"El número {numero} es impar.")
+
+# ------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.calcular_salario_minimo(7000)
+nuevaInstancia.Metodo4("himnonacional.txt", "oh, gloria y inmarcesible, oh, jubilo y mortal")
+nuevaInstancia.rango(0, 10, 2)
+nuevaInstancia.par_impar(5)
+nuevaInstancia.bucle()
