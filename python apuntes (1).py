@@ -2383,3 +2383,146 @@ nuevaInstancia.rango(0, 10, 2)
 nuevaInstancia.par_impar(32)
 nuevaInstancia.par_impar(45)
 nuevaInstancia.bucle()
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import random
+
+class Persona:
+    
+    def __init__(self, saldo_inicial):
+        self.documento = str(random.randint(10000000, 99999999))
+        self.saldo = saldo_inicial
+
+    def get_saldo(self):
+        return self.saldo
+
+    def leer_saldo_teclado(self):
+        nuevo_saldo = int(input("Introduce el nuevo saldo: "))
+        self.saldo = nuevo_saldo
+
+    def actualizar_saldo(self, cantidad_retiro):
+        if cantidad_retiro <= self.saldo:
+            self.saldo -= cantidad_retiro
+            print(f"Se ha retirado {cantidad_retiro} de la cuenta. Saldo restante: {self.saldo}")
+        else:
+            print("Saldo insuficiente para realizar la operación.")
+
+class CajeroAutomatico:
+    def __init__(self, persona):
+        self.persona = persona
+
+    def retirar_dinero(self):
+        while True:
+            cantidad_a_retirar = int(input("Ingrese la cantidad que desea retirar (0 para salir): "))
+            if cantidad_a_retirar == 0:
+                break
+            self.persona.actualizar_saldo(cantidad_a_retirar)
+
+def menu_persona(persona):
+    cajero_automatico = CajeroAutomatico(persona)
+    while True:
+        print("\nOperaciones con Persona:")
+        print(f"Documento de la persona: {persona.documento}")
+        print("1. Retirar dinero")
+        print("2. Consultar saldo")
+        print("3. Volver al menú principal")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == '1':
+            cajero_automatico.retirar_dinero()
+        elif opcion == '2':
+            print(f"Saldo actual: {persona.get_saldo()}")
+        elif opcion == '3':
+            break
+        else:
+            print("Opción no válida. Inténtelo de nuevo.")
+
+if __name__ == "__main__":
+    personas = []
+
+    for i in range(1, 3):  # Cambiado el rango a 3 para trabajar solo con Persona1 y Persona2
+        saldo_inicial = int(input(f"Introduce el saldo inicial para Persona{i}: "))
+        persona = Persona(saldo_inicial)
+        personas.append(persona)
+
+    while True:
+        print("\nMenú Principal:")
+        print("1. Operaciones con Persona1")
+        print("2. Operaciones con Persona2")
+        print("0. Salir")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion in {'1', '2'}:
+            menu_persona(personas[int(opcion) - 1])
+        elif opcion == '0':
+            print("Saliendo del programa.")
+            break
+        else:
+            print("Opción no válida. Inténtelo de nuevo.")
+
+
+class MiClase:
+   
+    def Metodo1(self):
+        return 0
+
+    def Metodo2(self):
+        return 1
+
+    def metodo2_1(self):
+        return 2
+
+    def Metodo4(self, nombre_archivo, mensaje):
+        d = self.Metodo3()
+        print(d)
+        e = self.escribir(nombre_archivo, mensaje)
+        print(e)
+
+    def bucle(self):
+        for i in range(1, 101, 2):  # Imprime los números impares del 1 al 100
+            print(i)
+
+    def calcular_salario_minimo(self, salario_minimo):
+        if 1000000 < salario_minimo < 700001:
+            mensaje = "El salario mínimo está en el rango adecuado."
+        elif salario_minimo >= 700001:
+            mensaje = "Se ha excedido el millón."
+        else:
+            mensaje = "El salario mínimo es menor a un millón."
+
+        with open("salario_minimo.txt", "w") as archivo:
+            archivo.write(mensaje)
+
+        print(mensaje)
+
+    def Metodo3(self):
+        a = self.Metodo1()
+        b = self.Metodo2()
+        c = self.metodo2_1()
+        return a + b + c
+
+    def escribir(self, nombre_archivo, mensaje):
+        with open(nombre_archivo, "w") as archivo:
+            archivo.write(mensaje)
+        return f"El mensaje '{mensaje}' ha sido guardado en el archivo '{nombre_archivo}'."
+
+    def rango(self, inicio, fin, paso):
+        for i in range(inicio, fin, paso):
+            print(i)
+    def par_impar(self, numero):
+        if numero % 2 == 0:
+           print(f"El número {numero} es par.")
+        else:
+           print(f"El número {numero} es impar.")
+
+# -----------------------------------
+nuevaInstancia = MiClase()
+nuevaInstancia.Metodo3()
+nuevaInstancia.calcular_salario_minimo(7000)
+nuevaInstancia.Metodo4("himnonacional.txt", "oh, gloria y inmarcesible, oh, jubilo y mortal")
+nuevaInstancia.rango(0, 10, 2)
+nuevaInstancia.par_impar(32)
+nuevaInstancia.par_impar(45)
+nuevaInstancia.bucle()
