@@ -2526,3 +2526,653 @@ nuevaInstancia.rango(0, 10, 2)
 nuevaInstancia.par_impar(32)
 nuevaInstancia.par_impar(45)
 nuevaInstancia.bucle()
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<?php
+
+//encriptar
+function encriptar($m){
+
+    $salida="";
+    //str_replace se utiliza para asicnar a una letro o numero algun simbolo
+    $m=str_replace(["a", "A", "b", "B", "c","C", "d", "D", "e", "E","f", "F", "g", "G", "h","H", "i", "I", "j", "J","k", "K", "l", "L", "m","M", "n", "N","ñ","Ñ", "o", "O","p", "P", "q", "Q", "r","R", "s", "S", "t", "T","u", "U", "v", "V", "w","W", "x", "X", "y", "Y","z","Z",""], ["!", "#", "─", "%", "&","/", "╚", "█", "=", "'","?", "¿", "¡", "+", "*","~", ",", "<", ">", "-","_", ";", ":", ".", "^","☺", "☻", "♥️","ô","q", "♦️", "♣️","♠️", "•", "◘", "○", "◙","♂", "♀", "♪", "♫", "☼","►", "◄", "↕", "‼️", "¶","§", "↨", "↑", "↓", "→","←","∟","1"], $m);
+    $salida=$m;
+    return $salida;
+}
+//en el echo introduce el texto que desas encriptar
+echo encriptar("Oh Guaviare, en tu seno nací
+Oh Guaviare, en tu seno me encuentro
+Y hoy busco libertad para ti.
+Cantaremos juntos, honraremos siempre Dios patria bandera e himno nacional.
+Viviremos juntos, marcharemos siempre con fe esperanza patria y libertad.").'<br>';
+
+
+//desencriptar
+function desencriptar($m){
+
+    $salida="";
+    $m=str_replace( ["!", "#", "─", "%", "&","/", "╚", "█", "=", "'","?", "¿", "¡", "+", "*","~", ",", "<", ">", "-","_", ";", ":", ".", "^","☺", "☻", "♥️","ô","q", "♦️", "♣️","♠️", "•", "◘", "○", "◙","♂", "♀", "♪", "♫", "☼","►", "◄", "↕", "‼️", "¶","§", "↨", "↑", "↓", "→","←","∟","1"],["a", "A", "b", "B", "c","C", "d", "D", "e", "E","f", "F", "g", "G", "h","H", "i", "I", "j", "J","k", "K", "l", "L", "m","M", "n", "N","ñ","Ñ", "o", "O","p", "P", "q", "Q", "r","R", "s", "S", "t", "T","u", "U", "v", "V", "w","W", "x", "X", "y", "Y","z","Z",""], $m);
+    $salida=$m;
+    return $salida;
+}
+//en el echo introduce el texto que desas desencriptar
+
+echo desencriptar("♣️* +►!↕,!◙=, =☻ ♫► ♀=☻♦️ ☻!&í ♣️* +►!↕,!◙=, =☻ ♫► ♀=☻♦️ ^= =☻&►=☻♫◙♦️ → *♦️↓ ─►♀&♦️ :,─=◙♫!╚ ♠️!◙! ♫,. /!☻♫!◙=^♦️♀ >►☻♫♦️♀, *♦️☻◙!◙=^♦️♀ ♀,=^♠️◙= █,♦️♀ ♠️!♫◙,! ─!☻╚=◙! = *,^☻♦️ ☻!&,♦️☻!:. ‼️,↕,◙=^♦️♀ >►☻♫♦️♀, ^!◙&*!◙=^♦️♀ ♀,=^♠️◙= &♦️☻ ?= =♀♠️=◙!☻←! ♠️!♫◙,! ↓ :,─=◙♫!╚.");
+
+?>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<?php
+error_reporting(0);
+echo prueba($conexion);
+
+function prueba($conexion){
+    
+    $salida = "";
+    $conec = mysqli_connect( "localhost", "root", "root", "bd_ejercicio_estudiantes1" );
+    $q = "SELECT documento, nombre, nota1, nota2, nota3, ((nota1+nota2+nota3)/2) AS estu FROM tb_estudiantes WHERE documento= '$docuemnto'";
+    $r = $conec -> query($q);
+    
+        while( $fila =  mysqli_fetch_array($r))    
+        $salida .= $fila['documento']. ''. $fila['nombre']. ''. $fila['nota1']. ''. $fila['nota2']. ''. $fila['nota3'];
+     if(['estu'] >= 3){
+        $salida .= ''. "aprobado";
+    }else{                
+        $salida .= ''. "desaprobado";
+    }echo '<br>';   
+            
+     
+          
+    $conec -> close();
+   
+
+    return $salida;
+    }
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    ?php
+
+    $host = "localhost";
+    $usuario = "root";
+    $contraseña = "root";
+    $base_de_datos = "bd_tour_people";
+
+   
+    $conexion = new mysqli($host, $usuario, $contraseña,$base_de_datos);
+
+   
+    if ($conexion->connect_error) {
+        die("Error de conexión: " . $conexion->connect_error);
+    }else{
+
+      echo 'si conecta';
+
+    }
+    ?>
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Mi Página con Base de Datos</title>
+        <style>
+            
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th,
+            td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            h1 {
+                font-size: 24px;
+                color: #333;
+            }
+        </style>
+    </head>
+
+    <body>
+       
+        <h1>Datos desde la Base de Datos</h1>
+        <h1>Primeras 10 Filas desde la Base de Datos</h1>
+        <?php
+        $consulta = "SELECT * FROM tb_usuario LIMIT 10";
+        $resultado = $conexion->query($consulta);
+        if($resultado){
+
+            echo "<table>";
+            echo "<tr><th>usuario</th><th>categoria</th><th>nombre pm
+            </th><th>apellido pm</th><th>correo</th><th>contraseña</th><th>fecha de nacimiento</th><th>edad</th><th>genero</th><th>documento</th>";
+    
+    
+            while ($fila = $resultado->fetch_array())  {
+                echo "<tr>";
+                echo "<td>" . $fila["id_user"] . "</td>";
+                echo "<td>" . $fila["id_categoria"] . "</td>";
+                echo "<td>" . $fila["nombre_pm"] . "</td>";
+                echo "<td>" . $fila["apellio_pm"] . "</td>";
+                echo "<td>" . $fila["correo "] . "</td>";
+                echo "<td>" . $fila["contraseña"] . "</td>";
+                echo "<td>" . $fila["fecha_naci"] . "</td>";
+                echo "<td>" . $fila["edad"] . "</td>";            
+                echo "<td>" . $fila["genero"] . "</td>";
+                echo "<td>" . $fila["id_documento"] . "</td>";
+                echo "</tr>";
+            }
+    
+    
+            echo "</table>";
+
+        }else{
+
+         echo "no sirve";
+
+        }
+        $conexion = new mysqli('localhost', 'root', 'root', 'bd_tour_people');
+if($conexion -> connect_error){
+    die('error en la conexion'. $conexion -> connect_error);
+}
+else{
+    echo 'bien hecho';
+    echo "<b>";
+    echo "<br>";
+}
+
+
+
+ ?>
+ 
+ </body>
+
+    </html>
+
+    </body>
+
+    </html>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+select * from tb_usuario;
+show databases;
+create schema bd_empresa_tour_people;
+use bd_empresa_tour_people;
+show tables;
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('1', '2', 'karen daniela', 'montes', 'karen@gmail.com', 'rert', '2000-07-20', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('2', '2', 'camila andrea', 'murillo', 'camil@gmail.com', 'trgg', '1999-09-28', '0','0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('3', '2', 'andres estiven', 'montoya', 'andrees@gmail.com', 'rett', '2003-07-16', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('4', '2', 'robert michell', 'moor tachack', 'robert@gmail.com', 'retet', '2003-11-20', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('5', '2', 'karen vanesa', 'trujillo', 'katherine@gmail.com', 'tetrtr', '2001-11-15', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('6', '2', 'valentino andres', 'roossi', 'roossi@gmail.com', 'rytuutu', '1990-10-20', '0', '0');
+
+select * from tb_usuario;
+describe tb_usuario;
+
+SET SQL_SAFE_UPDATES = 0;
+SET SQL_SAFE_UPDATES = 1;
+
+Update tb_usuario
+set plata = '30000'
+where id_user = '6';
+
+Update tb_usuario
+set edad = '20'
+where id_user = '6';
+
+create table tb_usuario(
+id_user int not null,
+id_categoria int not null,
+    nombre_pm varchar(50) not null,
+    apellido_pm varchar(50) not null,
+    correo varchar(60) not null,
+    contraseña varchar(30) not null,
+    fecha_naci date not null,
+    edad int null,
+    plata int null,
+    primary key(id_user)
+);
+select * from tb_usuario;
+drop table tb_usuario;
+
+
+select count(*) from tb_usuario;
+
+select nombre_pm from tb_usuario;
+
+select count(distinct nombre)
+from tb_usario ;
+
+select count(*) from tb_usuario
+where edad >= 18;
+select  * from tb_usuario
+where nombre_pm like '%a%';
+
+select *
+from tb_usuario
+where <=18
+or >=45
+order by nombre_pm, edad desc
+
+select  max(edad)
+from tb_usuario
+where edad <=18;
+alter table tb_usuario
+drop genero;
+
+alter table tb_usuario
+add genero boolean null;
+
+select genero, sum(plata)
+from tb_usuario
+group by genero
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+select * from tb_usuario;
+show databases;
+use bd_tour_people;
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('1', '2', 'karen daniela', 'montes', 'karen@gmail.com', 'rert', '2000-07-20', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('2', '2', 'camila andrea', 'murillo', 'camil@gmail.com', 'trgg', '1999-09-28', '0','0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('3', '2', 'andres estiven', 'montoya', 'andrees@gmail.com', 'rett', '2003-07-16', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('4', '2', 'robert michell', 'moor tachack', 'robert@gmail.com', 'retet', '2003-11-20', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('5', '2', 'karen vanesa', 'trujillo', 'katherine@gmail.com', 'tetrtr', '2001-11-15', '0', '0');
+
+insert into tb_usuario
+(id_user, id_categoria, nombre_pm, apellido_pm, correo, contraseña, fecha_naci, edad, plata) values
+('6', '2', 'valentino andres', 'roossi', 'roossi@gmail.com', 'rytuutu', '1990-10-20', '0', '0');
+
+show tables;
+drop table sabertyt_genericas_20222;
+
+
+select * from tb_usuario;
+describe tb_usuario;
+
+SET SQL_SAFE_UPDATES = 0;
+SET SQL_SAFE_UPDATES = 1;
+
+Update tb_usuario
+set plata = '30000'
+where id_user = '4';
+
+Update tb_usuario
+set edad = '15'
+where id_user = '1';
+
+create table tb_usuario(
+id_user int not null,
+id_categoria int not null,
+    nombre_pm varchar(50) not null,
+    apellio_pm varchar(50) not null,
+    correo varchar(60) not null,
+    contraseña varchar(30) not null,
+    fecha_naci date not null,
+    edad int null,
+    plata int null,
+    primary key(id_user)
+);
+select * from tb_usuario;
+drop table tb_usuario;
+
+
+select count(*) from tb_usuario;
+
+select nombre_pm from tb_usuario;
+
+select count(distinct nombre)
+from tb_usario ;
+
+select count(*) from tb_usuariotb_usuario
+where edad >= 18;
+select  * from tb_usuario
+where nombre_pm like '%c%';
+
+select *
+from tb_usuario
+where <=18
+or >=45
+order by nombre_pm, edad desc
+
+select  max(edad)
+from tb_usuario
+where edad <=18;
+alter table tb_usuario
+drop genero;
+
+alter table tb_usuario
+add genero varchar(10) null;
+alter table tb_usuario
+add id_documento int not null;
+
+
+
+select genero, sum(plata)
+from tb_usuario
+group by genero ;
+
+select nombre_pm, apellido_pm
+from tb_usuario
+where edad > 67
+and edad < 15
+limit 10;
+
+show databases;
+
+create schema db_Personas;
+
+select `ESTU_GENERO`, sum(`ESTU_TIPODOCUMENTO`)
+from `sabertyt_genericas_20222`
+group by `ESTU_GENERO`;
+//mal
+
+select count(*) `ESTU_TIPODOCUMENTO`;
+
+select count(*) `ESTU_DEPTO_RESIDE`;
+
+select count(*) `sabertyt_genericas_20222`;
+
+SELECT
+    MAX(`ESTU_FECHANACIMIENTO`)
+FROM
+    `sabertyt_genericas_20222`;
+   
+select count(*) from `sabertyt_genericas_20222`
+where `ESTU_DEPTO_RESIDE` like 'guaviare';
+
+
+
+
+select count(`ESTU_GENERO`)
+from `sabertyt_genericas_20222`;
+
+select `ESTU_GENERO`, count(*)
+from `sabertyt_genericas_20222`
+group by `ESTU_GENERO`;
+
+select  `ESTU_DEPTO_RESIDE`, count(*)
+from `sabertyt_genericas_20222`
+group by  `ESTU_DEPTO_RESIDE`
+ like 'GUAVIARE'
+ or 'meta';
+ //mal
+ 
+select  `ESTU_DEPTO_RESIDE`, count(*)
+from `sabertyt_genericas_20222`
+where `ESTU_DEPTO_RESIDE`like 'meta'
+or `ESTU_DEPTO_RESIDE` like 'guaviare'
+group by `ESTU_DEPTO_RESIDE`;
+
+select ESTU_DEPTO_RESIDE, count(ESTU_ESTUDIANTE) AS estud from sabertyt_genericas_20222 group by ESTU_DEPTO_RESIDE;
+
+create table tb_category_services(
+id_categoria int not null,
+id_sitios int not null,
+    id_usuario int not null,
+    nombre_categoria varchar(100)not null,
+    primary key(id_categoria)
+);
+select *from tb_category_services;
+insert into tb_category_services
+(id_categoria, id_sitios, id_usuario, nombre_categoria) values
+('1', '1', '5', 'privado');
+insert into tb_category_services
+(id_categoria, id_sitios, id_usuario, nombre_categoria) values
+('2', '3', '4', 'b2c');
+insert into tb_category_services
+(id_categoria, id_sitios, id_usuario, nombre_categoria) values
+('3', '1', '3', 'b2c');
+
+insert into tb_category_services
+(id_categoria, id_sitios, id_usuario, nombre_categoria) values
+('4', '2', '1', 'b2b');
+
+create table tb_sitios(
+id_sitios int not null,
+id_usuario int not null,
+    nombre_sitio varchar(60) not null,
+    ubicacion_sitio varchar(150) not null,
+    ciudad_sitio varchar(100) not null,
+    primary key(id_sitios)
+);
+select * from tb_sitios;
+show tables;
+insert into tb_sitios
+(id_sitios, id_usuario , nombre_sitio, ubicacion_sitio, ciudad_sitio) values
+('2', '1', 'los tuneles', 'a los once kilómetros', 'San Jose');
+insert into tb_sitios
+(id_sitios, id_usuario , nombre_sitio, ubicacion_sitio, ciudad_sitio) values
+('1', '5', 'los pozos naturales', 'a los ocho kilómetros de san jose', 'San Jose');
+insert into tb_sitios
+(id_sitios, id_usuario , nombre_sitio, ubicacion_sitio, ciudad_sitio) values
+('3', '4', 'pinturas rupestres', 'Mirador cerro Azul', 'San Jose');
+insert into tb_sitios
+(id_sitios, id_usuario , nombre_sitio, ubicacion_sitio, ciudad_sitio) values
+('4', '4', 'damas del nare', ' A más o menos 80 kilómetros de San Jose de Guaviare', 'San Jose');
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Persona:
+
+    def __init__( self, nombreAlNacer ):
+        self.nombre = nombreAlNacer
+        self.__claveCajero = "123-321"
+
+    def setNombre(self, nombreParaActualizar):
+        self.nombre = nombreParaActualizar
+
+    def getNombre(self):
+        return self.nombre
+
+    def setClave(self, nuevaClave):
+        self.__claveCajero = nuevaClave
+
+class Universo:
+
+    def menu():
+
+         alguien1 = Persona("Pedro")
+         #alguien1 = Persona("Pablo")
+         alguien2 = Persona("Pablo")
+
+         opc = 0
+
+         while opc != -1:
+
+             opc = int( input( "Digite la opcion 1 Get Alguien 1 - 2 Set alguien 1 - 3 Mirar nombre. \n" ) )
+
+             if opc == 1: print( alguien1.getNombre() )
+             if opc == 2: alguien1.setNombre( input( "Digita el nuevo nombre." ) )
+             if opc == 3: print( alguien1.nombre )
+             if opc == 4: print( alguien1.__claveCajero )
+             if opc == 5: alguien1.setClave("123888")
+
+#---------------------
+
+Universo.menu()
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class clientes:
+
+ def __init__(self, documento, clave):
+     self.documento = documento
+     self.__clave = clave
+
+ def get_clave(self):
+     return self.__clave
+
+def ingresar_nombre():
+    nombre = input("Por favor, ingresa tu nombre: ")
+    print("¡Hola, " + nombre + "!")
+
+class empresa(clientes):
+  def __init__(self, nombre):
+      self.nombre = nombre
+
+class PersonaNatural(clientes):
+
+  def __init__(self, nombre):
+      self.nombre = nombre
+
+#-------------------------------------------------------
+
+# Llamamos a la función
+ingresar_nombre()
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+show databases;
+create schema tb_usuarios;
+select database();
+use tb_usuarios;
+drop schema tb_usuarios;
+
+create table usuario(
+id_documento varchar(50)not null,
+id_categoria varchar(50)not null,
+nombre_p varchar(50)not null,
+apellido_p varchar(50)not null,
+correo varchar(50)not null,
+contraseña varchar(50)not null,
+edad varchar(50)not null,
+f_nacimiento date not null,
+telefono varchar(67)not null,
+primary key (id_documento)
+);
+drop table usuario;
+
+select * from usuario;
+
+INSERT INTO usuario(id_documento, id_categoria, nombre_p, apellido_p, correo, contraseña, edad, f_nacimiento, telefono) VALUES
+('1', '1', 'Maria', 'Martinez', 'maria890@gmail.com', 'Vtul5689067', '23', '2000-06-15', '3206753490'),
+('2', '2',  'Carlos', 'Cardona', 'carloscardona@gmail.com', 'Lgh5446', '34', '1989-03-23', '3129085632'),
+('3', '3', 'Robert', 'Vargas', 'robert563@gmail.com', '7894g3e4h', '28', '1975-12-09', '3166597065'),
+('4', '4', 'Sofia', 'Mendoza', 'sofiamendoza5@gmail.com', 'Daclit675623', '33', '1990-04-02', '3216385970'),
+('5', '5', 'Mario', 'Chavez', 'mario890@gmail.com', 'adg678jl', '20', '2003-09-29', '3209646704'),
+('6', '6', 'Carolina', 'Romero', 'carolina452@gmail.com', 'Jyfl7t7858', '41', '1982-10-03', '3216757845');
+
+show databases;
+create schema tb_sitios;
+select database();
+use tb_sitios;
+drop schema tb_sitios;
+
+create table sitio(
+id_sitios varchar(50)not null,
+id_user varchar(50)not null,
+descripcion_sitio varchar(200)not null,
+ubi_sitio varchar(100)not null,
+ciudad_sitio varchar(80)not null,
+primary key (id_sitios)
+);
+drop table sitio;
+
+select * from sitio;
+
+INSERT INTO sitio(id_sitios, id_user, descripcion_sitio, ubi_sitio, ciudad_sitio) VALUES
+('1', '3', 'Túneles Naturales Formaciones rocosas en posiciones que desafían la gravedad.', 'Situado por la vía Nuevo Tolima, en el kilómetro 11 desde San José del Guaviare.', 'San José del Guaviare'),
+('2', '5', 'Pinturas Rupestres se encuentra el arte rupestre más inaccesible del mundo. En la Serranía de La Lindosa.', 'Situado en el extremo norte de la Amazonía colombiana.', 'San José del Guaviare'),
+('3', '2', 'Laguna Damas Del Nare un lugar donde habitan delfines rosados.', 'Situado a más o menos a más o menos 80 kilómetros de San José de Guaviare.', 'San José del Guaviare'),
+('4', '4', 'Puerta De Orión es una imponente estructura rocosa.', 'Situado a nueve kilómetros de San José Del Guaviare.', 'San José del Guaviare'),
+('5', '1', 'Pozos Naturales son encantadoras piscinas naturales excavadas en el lecho rocoso de colores amarillo y café.', 'Situado a ocho kilómetros de San José del Guaviare.', 'San José del Guaviare');
+
+
+show databases;
+create schema db_cate;
+select database();
+use db_cate;
+drop schema db_cate;
+
+create table categorias(
+id_cate varchar(50)not null,
+nombre_cate varchar(50)not null,
+primary key (id_cate)
+);
+drop table categorias;
+
+select * from categorias;
+
+insert into categorias(id_cate, nombre_cate) values
+('1', 'administrador'),
+('2', 'usuario'),
+('3', 'administrador'),
+('4', 'usuario'),
+('5', 'administrador'),
+('6', 'usuario');
+
+show databases;
+create schema db_cate_servicios;
+select database();
+use db_cate_servicios;
+drop schema db_cate_servicios;
+
+create table categorias_se(
+id_categorias varchar(50)not null,
+id_user varchar(50)not null,
+hoteles varchar(200)not null,
+id_sitios varchar(100)not null,
+primary key (id_categorias)
+);
+drop table categorias_se;
+
+select * from categorias_se;
+
+insert into categorias_se(id_categorias, id_user, hoteles, id_sitios) values
+('1', '5', 'hotel', '5'),
+('2', '1', 'hotel', '1'),
+('3', '4', 'sitio', '4'),
+('4', '2', 'hotel', '3'),
+('5', '6', 'sitio', '2'),
+('6', '3', 'sitio', '3');
+
+show databases;
+create schema db_domicilios;
+select database();
+use db_domicilios;
+drop schema db_domicilios;
+
+create table domicilio(
+id_domicilios varchar(50)not null,
+id_user varchar(50)not null,
+nom_domicilios varchar(200)not null,
+telefonos_domi varchar(100)not null,
+primary key (id_domicilios)
+);
+drop table domicilio;
+
+select * from domicilio;
+
+insert into domicilio(id_domicilios, id_user, nom_domicilios, telefonos_domi) values
+('1', '5', 'comida1', '3209646704'),
+('2', '1', 'comida2', '3206753490'),
+('3', '4', 'comida3', '3216385970'),
+('4', '2', 'comida4', '3129085632'),
+('5', '6', 'comida5', '3216757845'),
+('6', '3', 'comida6', '3166597065');
