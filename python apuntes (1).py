@@ -3176,3 +3176,246 @@ insert into domicilio(id_domicilios, id_user, nom_domicilios, telefonos_domi) va
 ('4', '2', 'comida4', '3129085632'),
 ('5', '6', 'comida5', '3216757845'),
 ('6', '3', 'comida6', '3166597065');
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+apuntews de bases de datos 
+show databases;
+create schema tb_usuarios12;
+select database();
+use tb_usuarios12;
+show tables;
+drop schema tb_usuarios12;
+
+create table personas(
+id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(50) NOT NULL,
+documento VARCHAR(50) NOT NULL,
+fecha DATE,
+edad INT,
+salario DECIMAL(10, 2)
+);
+drop table personas;
+
+select * from personas;
+
+INSERT INTO personas(nombre, documento, fecha, edad, salario) values
+('maria', '123','1990-05-15', 30, 2500.00),
+('maria', '123', '1995-02-20', 25, 2200.00),
+('mariana', '456', '1952-09-10', 70, 2800.00);
+
+select count(*) from personas;
+
+select * from personas;
+
+SELECT COUNT(*) AS total_personas FROM personas;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE personas
+SET salario = edad * 1000;
+
+UPDATE personas
+SET edad = -edad;
+
+SET SQL_SAFE_UPDATES = 1;
+
+SELECT AVG(salario) AS salario_promedio FROM personas;
+
+update personas
+set edad = edad * -1
+where ABS (edad) > 35;
+
+create table productos(
+id_compra INT AUTO_INCREMENT PRIMARY KEY,
+documento VARCHAR(50) NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+cantidad VARCHAR(50) NOT NULL,
+valor_unitario DECIMAL(10, 2),
+fecha_compra DATE
+);
+drop table productos;
+
+select * from productos;
+
+INSERT INTO productos(id_compra, documento, nombre, descripcion, cantidad, valor_unitario, fecha_compra) values
+('100', '123', 'maria', 'papa k', '10', '100', '2023-12-15'),
+('101', '123', 'maria', 'coca cola litro', '4', '50', '2023-12-15'),
+('98','456', 'mariana', 'carne kib', '8', '14000', '2023-12-14');
+
+select *
+from personas t1, productos t2
+where t1.documento = t2.documento
+
+select *
+from personas t1, productos t2
+where t1.documento = t2.documento
+add t1.documento = 123
+
+select year(fecha)
+from personas t1, productos t2
+
+select month(fecha)
+from personas t1, productos t2
+
+select day(fecha)
+from personas t1, productos t2
+
+SELECT * FROM personas
+WHERE MONTH(fecha_nacimiento) = MONTH(CURRENT_DATE());
+
+SELECT MAX(MONTH(fecha_nacimiento))
+FROM personas;
+
+alter table productos 
+add constraint fk_personas_productos
+foreign key (id_empleado) references personas (id_emplado)
+
+create table comentarios(
+id_comentario INT AUTO_INCREMENT PRIMARY KEY,
+id_compra VARCHAR(50) NOT NULL,
+comentario VARCHAR(50) NOT NULL,
+documento VARCHAR(50) NOT NULL,
+fecha_registro DATE
+);
+drop table comentarios;
+
+select * from comentarios;
+
+INSERT INTO comentarios(id_comentario, id_compra, comentario, documento, fecha_registro) values
+('1', '100', 'La papa está cara', '123', '2023-12-15'),
+('2', '101', 'La papa está barata donde Boyaca', '123',  '2023-12-15'),
+('3','98', 'La carne está cara', '456', '2023-12-14');
+
+select *
+from personas t1, productos t2, comentarios t3
+where productos t1.documento = t2.documento 
+add comentarios t2.documento = t3.documento
+
+SELECT COUNT(*) AS total_personas FROM comentarios;
+
+select length('hola')
+
+select * from comentarios 
+where length(comentario)
+
+SELECT MAX(length(comentario))
+FROM comentarios;
+
+SELECT MAX(month(comentario))
+FROM comentarios;
+
+select month(fecha)
+from personas t1, productos t2, comentarios t3
+
+select year(fecha)
+from personas t1, productos t2, comentarios t3
+
+from comentarios 
+where month(fecha_registro)
+
+(select max(month(fecha_registro))
+ from comentarios)
+
+select descripcion
+from compras 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+show databases;
+create schema tb_usuarios12;
+select database();
+use tb_usuarios12;
+show tables;
+drop schema tb_usuarios12;
+
+create table personas(
+id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(50) NOT NULL,
+documento VARCHAR(50) NOT NULL,
+fecha DATE,
+edad INT,
+salario DECIMAL(10, 2)
+);
+drop table personas;
+
+select * from personas;
+
+INSERT INTO personas(nombre, documento, fecha, edad, salario) values
+('maria', '123','1990-05-15', 30, 2500.00),
+('maria', '123', '1995-02-20', 25, 2200.00),
+('mariana', '456', '1952-09-10', 70, 2800.00);
+
+select count(*) from personas;
+
+select * from personas;
+
+SELECT COUNT(*) AS total_personas FROM personas;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE personas
+SET salario = edad * 1000;
+
+UPDATE personas
+SET edad = -edad;
+
+SET SQL_SAFE_UPDATES = 1;
+
+SELECT AVG(salario) AS salario_promedio FROM personas;
+
+update personas
+set edad = edad * -1
+where ABS (edad) > 35;
+
+create table productos(
+id_compra INT AUTO_INCREMENT PRIMARY KEY,
+documento VARCHAR(50) NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+descripcion VARCHAR(50) NOT NULL,
+cantidad VARCHAR(50) NOT NULL,
+valor_unitario DECIMAL(10, 2),
+fecha_compra DATE
+);
+drop table productos;
+
+select * from productos;
+
+INSERT INTO productos(id_compra, documento, nombre, descripcion, cantidad, valor_unitario, fecha_compra) values
+('100', '123', 'maria', 'papa k', '10', '100', '2023-12-15'),
+('101', '123', 'maria', 'coca cola litro', '4', '50', '2023-12-15'),
+('98','456', 'mariana', 'carne kib', '8', '14000', '2023-12-14');
+
+select *
+from personas t1, productos t2
+where t1.documento = t2.documento
+
+select *
+from personas t1, productos t2
+where t1.documento = t2.documento
+add t1.documento = 123
+
+select *
+from personas t1, productos t2
+where t1.documento = t2.documento
+add t1.documento = 123
+
+select year(fecha)
+from personas t1, productos t2
+
+select year(fecha)
+from personas t1, productos t2
+
+select month(fecha)
+from personas t1, productos t2
+
+select day(fecha)
+from personas t1, productos t2
+
+SELECT * FROM personas
+WHERE MONTH(fecha_nacimiento) = MONTH(CURRENT_DATE());
+
+SELECT MAX(MONTH(fecha_nacimiento))
+FROM personas;
+
+alter table productos 
+add constraint fk_personas_productos
+foreign key (id_empleado) references personas (id_emplado)
+
